@@ -73,15 +73,15 @@
 #  The binary release version
 
 class prometheus::haproxy_exporter(
-  Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl] $cnf_scrape_uri,
-  String $download_extension,
+  Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl] $cnf_scrape_uri = 'http://localhost:1234/haproxy?stats;csv',
+  String $download_extension     = 'tar.gz',
   Array $extra_groups,
-  String $group,
-  String $package_ensure,
-  String $package_name,
-  String $user,
-  String $version,
-  Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl] $download_url_base,
+  String $group                  = 'haproxy-exporter',
+  String $package_ensure         = 'latest',
+  String $package_name           = 'haproxy_exporter',
+  String $user                   = 'haproxy-user',
+  String $version                = '0.7.1',
+  Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl] $download_url_base = 'https://github.com/prometheus/haproxy_exporter/releases',
   Boolean $purge_config_dir      = true,
   Boolean $restart_on_change     = true,
   Boolean $service_enable        = true,

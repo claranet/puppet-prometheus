@@ -91,15 +91,15 @@
 #       preferred_ip_protocol: ip4
 
 class prometheus::blackbox_exporter (
-  String $config_file,
-  String $download_extension,
-  String $download_url_base,
+  String $config_file            = '/etc/blackbox-exporter.yaml',
+  String $download_extension     = 'tar.gz',
+  String $download_url_base      = 'https://github.com/prometheus/blackbox_exporter/releases',
   Array[String] $extra_groups,
-  String $group,
-  String $package_ensure,
-  String $package_name,
-  String $user,
-  String $version,
+  String $group                  = 'blackbox-exporter',
+  String $package_ensure         = 'latest',
+  String $package_name           = 'blackbox_exporter',
+  String $user                   = 'blackbox-exporter',
+  String $version                = '0.7.0',
   Boolean $restart_on_change     = true,
   Boolean $service_enable        = true,
   String $service_ensure         = 'running',
