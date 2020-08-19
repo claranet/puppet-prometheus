@@ -73,7 +73,7 @@
 #  The binary release version
 
 class prometheus::haproxy_exporter(
-  Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl] $cnf_scrape_uri = 'http://localhost:1234/haproxy?stats;csv',
+  Variant[Stdlib::HTTPUrl, Stdlib::HTTPSUrl, Pattern[/unix:(?:\/.+)+/]] $cnf_scrape_uri = 'http://localhost:1234/haproxy?stats;csv',
   String $download_extension     = 'tar.gz',
   Array $extra_groups,
   String $group                  = 'haproxy-exporter',
